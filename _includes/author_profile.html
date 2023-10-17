@@ -1,0 +1,23 @@
+<div class="author_profile">
+
+  {% if site.author.avatar %}
+  <div >
+    <a href="{{ site.author.home | default: '/' | absolute_url }}">
+      <img class="author_avatar" src="{{ site.author.avatar | relative_url }}" alt="{{ author.name }}">
+    </a>
+  </div>
+  {% endif %}
+  <br>
+  {% if site.author.github %}
+  <a href="https://github.com/{{ site.author.github }}">
+    <i class="fa-brands fa-github fa-xl"></i>
+  </a>
+  {% endif %}
+  {% if site.author.email %}
+  <a href="mailto:{{ site.author.email }}">
+    <meta itemprop="email" content="{{ site.author.email }}" />
+    <i class="fa-solid fa-envelope fa-xl"></i>
+  </a>
+  {% endif %}
+
+</div>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>y1lan's blogs</title>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2023-10-18T01:46:11+08:00</updated>
+ <id>http://localhost:4000</id>
+ <author>
+   <name>y1lan</name>
+   <email>y1lan@outlook.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Testing</title>
+   <link href="http://localhost:4000/2023/10/17/test.html"/>
+   <updated>2023-10-17T00:00:00+08:00</updated>
+   <id>http://localhost:4000/2023/10/17/test</id>
+   <content type="html">&lt;p&gt;nothing meaningful.&lt;/p&gt;
+
+&lt;p&gt;here is not for excerpt.&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>

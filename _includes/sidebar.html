@@ -1,0 +1,39 @@
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    {% include author_profile.html %}
+  </div>
+
+  <div class="sidebar-item">
+    <p>{{ site.description }}</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item{% if page.title == 'Home' %} active{% endif %}" href="{{ '/' | absolute_url }}"> <i
+        class="fa-solid fa-house fa-sm fa-fw"></i>&emsp;Home</a>
+
+    {% comment %}
+    The code below dynamically generates a sidebar nav of pages with
+    `layout: page` in the front-matter. See readme for usage.
+    {% endcomment %}
+
+
+    <a class="sidebar-nav-item{% if page.url == '/about.html' %} active{% endif %}"
+      href="{{ '/about.html' | absolute_url }}"> <i class="fa-solid fa-user fa-sm fa-fw"></i>&emsp;About</a>
+
+
+    <!-- <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a> -->
+    <!-- <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a> -->
+    <!-- <span class="sidebar-nav-item">Currently v{{ site.version }}</span> -->
+  </nav>
+
+  <div class="sidebar-item-rights-reserved">
+    <p class="sidebar-item-rights-reserved-para">
+      &copy; {{ site.time | date: '%Y' }}. All rights reserved.
+    </p>
+  </div>
+</div>
