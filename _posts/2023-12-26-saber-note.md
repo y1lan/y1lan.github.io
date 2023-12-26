@@ -1,8 +1,11 @@
 ---
 layout: post
-title: Testing
+title: "[Note]Detecting Memory Leaks Statically with Full-Sparse Value-Flow Analysis"
 tag: "note"
 ---
+
+My reading note for paper "Detecting Memory Leaks Statically with Full-Sparse Value-Flow Analysis"
+
 
 # Notation List
 
@@ -37,12 +40,11 @@ $\mathcal{D}$: the nonlocal memory locations in $f$ that may be indirectly modif
 
 $\vdash f: \mathcal{U}(\mathcal{D})$: denotes the above two definitions in $f$
 
-
 $\vdash f \downarrow s: \mathcal{U}(\mathcal{D})$: inherited the above three definitions and limits the analysis boundry in just a statement $s$
 
 $\mathscr{F}_k$: callsite
 
-$N_{\mathscr{F}_k}$: the set of all nonlocal locations passed into this callsite $\mathscr{{F}_k}$
+$N_{\mathscr{F}_k}$: the set of all nonlocal locations passed into this callsite $\mathscr{{F}}_k$
 
 $Callees(\mathscr{F}_k)$: the set of callees possibly invoked at the callsite $\mathscr{F}_k$ 
 
@@ -58,21 +60,21 @@ $\widehat{p_i}$: the def site of variable $p_i$, which forms a region by itself
 
 $\widehat{CLOBAL}$: a global variable $g_i$ is abstracted as the unique $GLOBAL$ region
 
-$\widehat{R_i} \xhookleftarrow[]{k} \widehat{R_j}$: values flow from the def site of region $R_j$ to the def site of $R_i$, where $k$ represents a callsite id for context-sensitive reachability analysis and is omitted if the flow is intraprocedural 
+$\widehat{R_i} \hookleftarrow^{k} \widehat{R_j}$: values flow from the def site of region $R_j$ to the def site of $R_i$, where $k$ represents a callsite id for context-sensitive reachability analysis and is omitted if the flow is intraprocedural 
 
 $PAR_g(q_j)$: the corresponding formal parameter of $q_j$ in SSA(version 0), where $g \in Callees(\mathscr{F}_k)$
 
 $RET_g(p_i)$: the unique SSA variable return ed in function $g \in Callees(\mathscr{F}_k)$
 
-$ENT_g = \{R \in \mathbb{R}_g | R \cap \mathcal{U} \neq \empty \}$: the set of nonlocal regions that may be read in $g$
+$ENT_g = \{R \in \mathbb{R}_g \| R \cap \mathcal{U} \neq \emptyset \}$: the set of nonlocal regions that may be read in $g$
 
-$EXT_g = \{R \in \mathbb{R}_g | R \cup \mathcal{D} \neq \empty \}$: the set of nonlocal regions that mey be modified or the regions returned to a caller at the exit of $g$
+$EXT_g = \{R \in \mathbb{R}_g \| R \cup \mathcal{D} \neq \emptyset \}$: the set of nonlocal regions that mey be modified or the regions returned to a caller at the exit of $g$
 
 $\texttt{vfpaths}(src, tgt)$: the set of all $value-flow paths$ from $src$ to $tgt$ in the SVFG
 
 $\texttt{vfguard}(P)$: a Boolean formula that encodes the set of $control-flow paths$ that the underlying value reaches in the program, from $src$ to $tgt$, where $P \in \texttt{vfpaths}(src, tgt)$
 
-$\textsf{FREED}(src) = \displaystyle \bigvee_{tgt \in \mathcal{S}_{src}} \bigvee_{P \in \texttt{vfpaths}(src, tgt)} \texttt{vfguard}(P)$: the sef of control-flow paths reaching a sink in $\mathcal{S}_{src}$ from $src$
+$\textsf{FREED}(src) = \displaystyle \bigvee_{tgt \in S_{src} } \bigvee_{P \in \texttt{vfpaths}(src, tgt)} \texttt{vfguard}(P)$: the set of control-flow paths reaching a sink in $\mathcal{S}_{src}$ from $src$
 
 $\texttt{vfedges}(P)$: set of all value-flow edges in $P$
 
