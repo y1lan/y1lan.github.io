@@ -44,7 +44,7 @@ $\vdash f \downarrow s: \mathcal{U}(\mathcal{D})$: inherited the above three def
 
 $\mathscr{F}_k$: callsite
 
-$N_{\mathscr{F}_k}$: the set of all nonlocal locations passed into this callsite $\mathscr{{F}}_k$
+$N_{\mathscr{F}_k}$: the set of all nonlocal locations passed into this callsite $\mathscr{F}_k$
 
 $Callees(\mathscr{F}_k)$: the set of callees possibly invoked at the callsite $\mathscr{F}_k$ 
 
