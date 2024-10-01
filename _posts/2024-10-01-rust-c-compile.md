@@ -209,7 +209,7 @@ fn main() {
         let c_str_rust_version = std::ffi::CString::from_raw(c_str);
         println!("{:?}", c_str_rust_version); 
     }
-    let rust_int = 1919180;
+    let rust_int = 54321;
     unsafe{
         let c_int = cxxtt::int_from_c(rust_int);
         println!("{}", c_int);
