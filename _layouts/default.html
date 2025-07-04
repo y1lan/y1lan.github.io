@@ -1,34 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-us">
+    {% include head.html %}
 
-{% include head.html %}
+    <body>
+        {% include sidebar.html %}
 
-<body>
-
-  {% include sidebar.html %}
-
-  <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+        <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
          content to avoid any CSS collisions with our real content. -->
-  <div class="wrap">
-    <div class="masthead">
-      <div class="container">
-        <h3 class="masthead-title">
-          <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
-          <small>{{ site.tagline }}</small>
-        </h3>
-      </div>
-    </div>
+        <div class="wrap">
+            <div class="masthead">
+                <div class="container">
+                    <h3 class="masthead-title">
+                        <a href="{{ site.baseurl }}/" title="Home"
+                            >{{ site.title }}</a
+                        >
+                        <small>{{ site.tagline }}</small>
+                    </h3>
+                </div>
+            </div>
 
-    <div class="container content">
-      {{ content }}
-    </div>
-  </div>
+            <div class="container content">{{ content }}</div>
+        </div>
 
-  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+        <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
-  <script src='{{ site.baseurl }}/public/js/script.js'></script>
-  <script src="https://kit.fontawesome.com/00c52b79f4.js" crossorigin="anonymous"></script>
-  <!-- <script type="text/x-mathjax-config">
+        <script src="{{ site.baseurl }}/public/js/script.js"></script>
+        <script
+            src="https://kit.fontawesome.com/00c52b79f4.js"
+            crossorigin="anonymous"
+        ></script>
+        <!-- <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         tex2jax: {
           inlineMath: [['$','$'], ['\\(','\\)']],
@@ -39,22 +40,62 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
     type="text/javascript">
   </script> -->
-  <script type="text/javascript" async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML">
-  </script>
+        <script
+            type="text/javascript"
+            async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"
+        ></script>
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      extensions: ["tex2jax.js"],
-      jax: ["input/TeX", "output/HTML-CSS"],
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-        processEscapes: true
-      },
-      "HTML-CSS": { availableFonts: ["TeX"] }
-    });
-  </script>
-</body>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+              extensions: ["tex2jax.js"],
+              jax: ["input/TeX", "output/HTML-CSS"],
+              tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+              },
+              "HTML-CSS": { availableFonts: ["TeX"] }
+            });
+        </script>
+        {% if site.google_analytics_id %}
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i["GoogleAnalyticsObject"] = r;
+                ((i[r] =
+                    i[r] ||
+                    function () {
+                        (i[r].q = i[r].q || []).push(arguments);
+                    }),
+                    (i[r].l = 1 * new Date()));
+                ((a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]));
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m);
+            })(
+                window,
+                document,
+                "script",
+                "//www.google-analytics.com/analytics.js",
+                "ga",
+            );
+            ga("create", "{{ site.google_analytics_id }}", "auto");
+            ga("send", "pageview");
+        </script>
+        {% endif %}
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-Q2JJ83TDH3"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
 
+            gtag("config", "G-Q2JJ83TDH3");
+        </script>
+    </body>
 </html>
