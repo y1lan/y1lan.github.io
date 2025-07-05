@@ -6,6 +6,8 @@ tag: "note"
 
 主要参考自[build-script-examples](https://doc.rust-lang.org/cargo/reference/build-script-examples.html)、[cc](https://docs.rs/cc/latest/cc/)。
 
+<!--more-->
+
 ## 一、考虑build.rs
 
 假设有C源文件`src/hello.c`，其内容如下：

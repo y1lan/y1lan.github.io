@@ -7,6 +7,8 @@ tag: "note"
 `getelementptr`是LLVM  IR里的一个用于计算指针偏移量的指令，非常常见但是又非常容易引起误解。
 内容参考——[GetElementPtr](https://llvm.org/docs/GetElementPtr.html)，[LLVM IR tutorial](https://llvm.org/devmtg/2019-04/slides/Tutorial-Bridgers-LLVM_IR_tutorial.pdf)
 
+<!--more-->
+
 **getelementptr指令只是计算偏移量，不对指针做解引用。**
 
 语法：
@@ -62,6 +64,14 @@ define dso_local signext i8 @accessA(ptr nocapture noundef %0) local_unnamed_add
   ret i8 %5
 }
 ```
-`c->z.y` 被解析成`getelementptr inbounds %struct.complicate, ptr %0, i64 0, i32 2, i32 1`，其中`%0`为`c`, 第一组`i64 0`可看作由`%struct.complicate`组成的数组里取第一个元素，第二组`i32 2`表示在`%struct.complicate`这个结构体类型里取第三个元素，**注意——这里的第三个元素仅仅就是第三个元素，与每个元素的字节数无关**。在`%struct.complicate`中，第一个元素为`i32`，第二个元素为`i64`，第三个元素为`%struct.insideComplicate`，因此第二组`i32 2`取到`%struct.insideComplicate`。第三组`i32 1`对类型`%struct.insideComplicate`取第二个元素`i64`，于是完成`c->z.y`的取地址工作。
+`c->z.y` 被解析成
+
+```
+getelementptr inbounds %struct.complicate, ptr %0, i64 0, i32 2, i32 1
+```
+
+其中`%0`为`c`, 第一组`i64 0`可看作由`%struct.complicate`组成的数组里取第一个元素；第二组`i32 2`表示在`%struct.complicate`这个结构体类型里取第三个元素，**注意——这里的第三个元素仅仅就是第三个元素，与每个元素的字节数无关**。
+
+在`%struct.complicate`中，第一个元素为`i32`，第二个元素为`i64`，第三个元素为`%struct.insideComplicate`，因此第二组`i32 2`取到`%struct.insideComplicate`；第三组`i32 1`对类型`%struct.insideComplicate`取第二个元素`i64`，于是完成`c->z.y`的取地址工作。
 
 剩下两条`getelementptr`指令与源码的对应关系留给读者。

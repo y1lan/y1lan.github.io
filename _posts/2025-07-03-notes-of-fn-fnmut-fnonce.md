@@ -6,6 +6,8 @@ tag: "rust-note"
 
 笔记参考了互联网上的一些帖子、《The Rust Programming Language》等。
 
+<!--more-->
+
 # 一、`FnOnce`、`FnMut`、`Fn` Traits 是什么？
 
 `FnOnce`、`FnMut`、`Fn`是Rust中自动为闭包（closure）实现的调用操作符，用以细化一个闭包的调用行为。
