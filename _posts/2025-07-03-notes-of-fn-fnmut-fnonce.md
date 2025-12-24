@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Rust 中的 FnOnce、FnMut 与 Fn Traits"
+title: "Rust学习笔记——Rust 中的 FnOnce、FnMut 与 Fn Traits"
 tag: "rust-note"
 ---
 
