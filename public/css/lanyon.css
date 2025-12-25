@@ -350,16 +350,17 @@ a.sidebar-nav-item:focus {
   -ms-transform: translateX(14rem);
   transform: translateX(14rem);
 }
+
 /*
  * Author profile
  *
  */
 
-.author_profile{
+.author_profile {
   text-align: center;
 }
 
-.author_avatar{
+.author_avatar {
   border-radius: 50%;
 }
 
