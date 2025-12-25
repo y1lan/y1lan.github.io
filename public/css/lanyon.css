@@ -78,18 +78,18 @@ h6 {
  */
 
 .container {
-  max-width: 28rem;
+  max-width: 34rem;
 }
 
 @media (min-width: 38em) {
   .container {
-    max-width: 32rem;
+    max-width: 42rem;
   }
 }
 
 @media (min-width: 56em) {
   .container {
-    max-width: 38rem;
+    max-width: 52rem;
   }
 }
 
@@ -386,6 +386,7 @@ a.sidebar-nav-item:focus {
 .page-title,
 .post-title {
   margin-top: 0;
+  font-size: 1.5rem;
 }
 
 /* Meta data line below post title */
