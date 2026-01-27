@@ -9,8 +9,9 @@ tag: "typst"
 现在放弃继续投了，索性整理一下学到的做成一个模板。
 
 
-采用的是typst，基于[neet-cv](https://github.com/kznr02/neet-cv)修改的
+采用的是typst，基于[neet-cv](https://github.com/kznr02/neet-cv)修改的。
 
+fork之后的地址在[y1lan-neet-cv](https://github.com/y1lan/neet-cv)。
 
 <!--more-->
 
