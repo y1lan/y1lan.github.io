@@ -40,3 +40,5 @@ gem "csv"
 gem "base64"
 
 gem "bigdecimal"
+
+gem "logger", "~> 1.7"

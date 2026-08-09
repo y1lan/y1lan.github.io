@@ -3,23 +3,30 @@ layout: default
 title: Home
 ---
 
-<div class="posts">
+<main class="home-page">
+  <div class="posts">
   {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
+  <article class="post post-card">
+    <div class="post-index">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</div>
+    <div class="post-card-body">
+    <div class="post-meta-line">
+      <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
+      {% if post.categories.size > 0 %}<span class="post-category">{{ post.categories | first }}</span>{% endif %}
+    </div>
+    <h2 class="post-title">
       <a href="{{ post.url | absolute_url }}">
         {{ post.title }}
       </a>
-    </h1>
-
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+    </h2>
 
     {{ post.excerpt }}
-  </div>
+    <a class="read-more" href="{{ post.url | absolute_url }}" aria-label="Read {{ post.title }}">Read note <span>↗</span></a>
+    </div>
+  </article>
   {% endfor %}
-</div>
+  </div>
 
-<div class="pagination">
+  <div class="pagination">
   {% if paginator.next_page %}
   <a class="pagination-item older" href="{{ paginator.next_page_path | absolute_url }}">Older</a>
   {% endif %}
@@ -30,4 +37,5 @@ title: Home
   <a class="pagination-item newer" href="{{ paginator.previous_page_path | absolute_url }}">Newer</a>
   {% endif %}
   {% endif %}
-</div>
+  </div>
+</main>
